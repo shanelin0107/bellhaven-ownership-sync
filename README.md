@@ -1,5 +1,8 @@
 # Bellhaven ownership sync
 
+Submission writeup covering the matching approach, AI tool use, and next steps:
+[WRITEUP.md](WRITEUP.md)
+
 Keeping the parent company link accurate on long term care accounts, using the
 operator's own website as the source of truth.
 
