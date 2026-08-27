@@ -221,8 +221,8 @@ def render_page(state, flash=None, view="queue", conf_filter=None):
     failed = sum(1 for r in rows if r["apply_status"] == "failed")
 
     mode = "live" if state["client"].dry_run is False else "dry"
-    mode_txt = "LIVE — approvals write to the CRM" if mode == "live" else \
-               "DRY RUN — scratch ledger, nothing written (restart with --live)"
+    mode_txt = "LIVE: approvals write to the CRM" if mode == "live" else \
+               "DRY RUN: scratch ledger, nothing written (restart with --live)"
 
     flash_html = ""
     if flash:
@@ -359,7 +359,7 @@ class Handler(BaseHTTPRequestHandler):
                 targets = [pend[fp]] if fp in pend else []
 
             if not targets:
-                return self._redirect("Already decided — nothing to do.", "err")
+                return self._redirect("Already decided, nothing to do.", "err")
 
             ok = err = 0
             problems = []
@@ -382,10 +382,10 @@ class Handler(BaseHTTPRequestHandler):
 
             if err:
                 return self._redirect(
-                    f"{ok} succeeded, {err} failed — " + "; ".join(problems[:2]), "err")
+                    f"{ok} succeeded, {err} failed. " + "; ".join(problems[:2]), "err")
             verb = "approved and written" if decision == "approved" else "rejected"
             if state["client"].dry_run and decision == "approved":
-                verb = "approved (dry run — nothing written)"
+                verb = "approved (dry run, nothing written)"
             return self._redirect(f"{ok} proposal(s) {verb}.")
 
     def _redirect(self, msg, kind="ok"):
@@ -419,8 +419,8 @@ def main():
         "client": CRMClient(dry_run=not args.live),
     }
 
-    mode = "LIVE — approvals will write to the CRM" if args.live else \
-           "DRY RUN — no writes (restart with --live to apply)"
+    mode = "LIVE: approvals will write to the CRM" if args.live else \
+           "DRY RUN: no writes (restart with --live to apply)"
     pend = len(D.pending(Handler.state["conn"], doc["proposals"]))
     print(f"Review queue on http://localhost:{args.port}", flush=True)
     print(f"  {mode}", flush=True)
