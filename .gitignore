@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Dry-run rehearsals never belong in version control.
+data/decisions.dryrun.db
+
+# Local run logs from the cron wrapper.
+data/sync.log
+data/sync-errors.log

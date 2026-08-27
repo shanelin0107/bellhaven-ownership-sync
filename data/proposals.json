@@ -1,0 +1,1163 @@
+{
+  "generated_at": "2026-08-27 20:19:17Z",
+  "counts": {
+    "website_communities": 34,
+    "crm_accounts": 121,
+    "crm_facilities": 115,
+    "crm_parent_records": 6,
+    "classified": {
+      "missing": 3,
+      "needs_fix": 11,
+      "missing_flagged": 1,
+      "confident": 14,
+      "duplicate_group": 5
+    },
+    "proposals": {
+      "create": 4,
+      "rename": 9,
+      "reparent": 3,
+      "dedupe": 7,
+      "annotate": 1,
+      "chow": 2,
+      "orphan": 3
+    }
+  },
+  "classified": [
+    {
+      "website": "Amberly Manor",
+      "slug": "/communities/amberly-manor",
+      "outcome": "missing",
+      "tier": "no match",
+      "crm": []
+    },
+    {
+      "website": "Bellhaven at Sycamore Ridge",
+      "slug": "/communities/bellhaven-at-sycamore-ridge",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "00191H7JR16471SZ34"
+      ]
+    },
+    {
+      "website": "Bellhaven at Union Square",
+      "slug": "/communities/bellhaven-at-union-square",
+      "outcome": "missing_flagged",
+      "tier": "no match",
+      "crm": []
+    },
+    {
+      "website": "Bellhaven Court of Altoona",
+      "slug": "/communities/bellhaven-court-of-altoona",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "0011D2P3CWSHMF81C8"
+      ]
+    },
+    {
+      "website": "Bellhaven Crossings of Lima",
+      "slug": "/communities/bellhaven-crossings-of-lima",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "001LGFPBJY4N9MB6KL"
+      ]
+    },
+    {
+      "website": "Bellhaven Gardens of Monroe",
+      "slug": "/communities/bellhaven-gardens-of-monroe",
+      "outcome": "duplicate_group",
+      "tier": "T1 exact address",
+      "crm": [
+        "001U1750VLVJAGG1S5",
+        "0011AB44D05WLA9HTX",
+        "00159PL81N38KM4FHM"
+      ]
+    },
+    {
+      "website": "Bellhaven Healthcare Centre of Ashland",
+      "slug": "/communities/bellhaven-healthcare-centre-of-ashland",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "001RJ0D7Z5MAZN5HX5"
+      ]
+    },
+    {
+      "website": "Bellhaven of Ashtabula",
+      "slug": "/communities/bellhaven-of-ashtabula",
+      "outcome": "confident",
+      "tier": "T4 same city + name similarity",
+      "crm": [
+        "001NXP9X46CWEPSLSV"
+      ]
+    },
+    {
+      "website": "Bellhaven of Batavia",
+      "slug": "/communities/bellhaven-of-batavia",
+      "outcome": "missing",
+      "tier": "no match",
+      "crm": []
+    },
+    {
+      "website": "Bellhaven of Carlisle",
+      "slug": "/communities/bellhaven-of-carlisle",
+      "outcome": "missing",
+      "tier": "no match",
+      "crm": []
+    },
+    {
+      "website": "Bellhaven of Chagrin Falls",
+      "slug": "/communities/bellhaven-of-chagrin-falls",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "001RJU1X4NBWC1Q0G7"
+      ]
+    },
+    {
+      "website": "Bellhaven of Chesterton",
+      "slug": "/communities/bellhaven-of-chesterton",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "0013NUZQHQUEZ8DXEG"
+      ]
+    },
+    {
+      "website": "Bellhaven of Defiance",
+      "slug": "/communities/bellhaven-of-defiance",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "001R4PXTUD9R6FNN8V"
+      ]
+    },
+    {
+      "website": "Bellhaven of Goshen",
+      "slug": "/communities/bellhaven-of-goshen",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "001JQER1RMYKNRLNME"
+      ]
+    },
+    {
+      "website": "Bellhaven of Kalamazoo",
+      "slug": "/communities/bellhaven-of-kalamazoo",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "001NSHWKQD0YJLPQ20"
+      ]
+    },
+    {
+      "website": "Bellhaven of Kettering",
+      "slug": "/communities/bellhaven-of-kettering",
+      "outcome": "duplicate_group",
+      "tier": "T1 exact address",
+      "crm": [
+        "001WR41PYNWXCAE2X4",
+        "0016KTS1UAWBRXS09J",
+        "001B7XZAA3AFALS9GP"
+      ]
+    },
+    {
+      "website": "Bellhaven of Maplewood",
+      "slug": "/communities/bellhaven-of-maplewood",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "001L3LGR6W69J8DYYV"
+      ]
+    },
+    {
+      "website": "Bellhaven of Marietta",
+      "slug": "/communities/bellhaven-of-marietta",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "001A34WFSUYHCRBLFT"
+      ]
+    },
+    {
+      "website": "Bellhaven of Marion",
+      "slug": "/communities/bellhaven-of-marion",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "0015L38R1Z5947ZZP7"
+      ]
+    },
+    {
+      "website": "Bellhaven of Meadville",
+      "slug": "/communities/bellhaven-of-meadville",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "001KC1NG7EZDEKKA3T"
+      ]
+    },
+    {
+      "website": "Bellhaven of New Carlisle",
+      "slug": "/communities/bellhaven-of-new-carlisle",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "001AQGPZ5G5VRES536"
+      ]
+    },
+    {
+      "website": "Bellhaven of Owosso",
+      "slug": "/communities/bellhaven-of-owosso",
+      "outcome": "duplicate_group",
+      "tier": "T1 exact address",
+      "crm": [
+        "001EGU7BMJ942ZTRE6",
+        "001QU150PM4Z15UA71"
+      ]
+    },
+    {
+      "website": "Bellhaven of Port Clinton",
+      "slug": "/communities/bellhaven-of-port-clinton",
+      "outcome": "duplicate_group",
+      "tier": "T1 exact address",
+      "crm": [
+        "001UELXDAKFRKB8932",
+        "001JD2MWRA74LTSN24"
+      ]
+    },
+    {
+      "website": "Bellhaven of Portsmouth",
+      "slug": "/communities/bellhaven-of-portsmouth",
+      "outcome": "confident",
+      "tier": "T3 city + house number",
+      "crm": [
+        "001CF3LDWVRGL09P4F"
+      ]
+    },
+    {
+      "website": "Bellhaven of Saline",
+      "slug": "/communities/bellhaven-of-saline",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "001MVVAPY6U5TVYRC4"
+      ]
+    },
+    {
+      "website": "Bellhaven of Tiffin",
+      "slug": "/communities/bellhaven-of-tiffin",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "001U6RW32TY0WSXZZB"
+      ]
+    },
+    {
+      "website": "Bellhaven of Wooster",
+      "slug": "/communities/bellhaven-of-wooster",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "001W5G121A7SMRP58M"
+      ]
+    },
+    {
+      "website": "Bellhaven of Zanesville",
+      "slug": "/communities/bellhaven-of-zanesville",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "001H1JMVZWP46D5VUF"
+      ]
+    },
+    {
+      "website": "Bellhaven Rehabilitation & Nursing of Grove City",
+      "slug": "/communities/bellhaven-rehabilitation-nursing-of-grove-city",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "001TZCSTBZFM6K5BGN"
+      ]
+    },
+    {
+      "website": "Bellhaven Shores of Erie",
+      "slug": "/communities/bellhaven-shores-of-erie",
+      "outcome": "duplicate_group",
+      "tier": "T1 exact address",
+      "crm": [
+        "001CVBBCSDM7YHN220",
+        "001BLYF02K97SZLZHH"
+      ]
+    },
+    {
+      "website": "Bellhaven Terrace of Akron",
+      "slug": "/communities/bellhaven-terrace-of-akron",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "0019Y4J61ZBG4R00CD"
+      ]
+    },
+    {
+      "website": "Bellhaven Willow Creek",
+      "slug": "/communities/bellhaven-willow-creek",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "0017MN2JYAJBDS8WQZ"
+      ]
+    },
+    {
+      "website": "Bellhaven Woods of Toledo",
+      "slug": "/communities/bellhaven-woods-of-toledo",
+      "outcome": "confident",
+      "tier": "T1 exact address",
+      "crm": [
+        "0014DHACE6WQU3RMM5"
+      ]
+    },
+    {
+      "website": "The Arbors at Bellhaven - Dayton",
+      "slug": "/communities/the-arbors-at-bellhaven-dayton",
+      "outcome": "needs_fix",
+      "tier": "T1 exact address",
+      "crm": [
+        "0010KJFP601YNTZVDA"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "type": "create",
+      "account_id": null,
+      "account_name": null,
+      "changes": {
+        "name": [
+          "",
+          "Amberly Manor"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "no match",
+      "evidence": [
+        "website: Amberly Manor -- 4390 Darrow Rd, Hudson, OH 44236",
+        "no CRM account shares this address, and no same-city name match cleared the threshold",
+        "similar names elsewhere in the CRM were rejected on geography"
+      ],
+      "create_account": {
+        "name": "Amberly Manor",
+        "parent_id": "0015QAPLGS3FVYEEEM",
+        "billing_street": "4390 Darrow Rd",
+        "billing_city": "Hudson",
+        "billing_state": "OH",
+        "billing_zip": "44236",
+        "phone": "(330) 228-4392",
+        "status": "Active",
+        "note": "Created by ownership sync from https://analyst-assessment-production.up.railway.app/communities/amberly-manor."
+      },
+      "website": "/communities/amberly-manor",
+      "near_misses": [],
+      "fingerprint": "9fc820e35f8d471b"
+    },
+    {
+      "type": "rename",
+      "account_id": "00191H7JR16471SZ34",
+      "account_name": "Bellhaven of Sycamore Ridge",
+      "changes": {
+        "name": [
+          "Bellhaven of Sycamore Ridge",
+          "Bellhaven at Sycamore Ridge"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven at Sycamore Ridge -- 7420 Sycamore Ridge Dr, Miamisburg, OH 45342",
+        "CRM:     Bellhaven of Sycamore Ridge -- 7420 Sycamore Ridge Dr, Miamisburg, OH 45342",
+        "matched by T1 exact address",
+        "care offerings -- website: Assisted Living; CRM care_type: Assisted Living",
+        "name similarity 0.96",
+        "the website is authoritative for the operating name"
+      ],
+      "fingerprint": "f03e093ea4c01af5"
+    },
+    {
+      "type": "create",
+      "account_id": null,
+      "account_name": null,
+      "changes": {
+        "name": [
+          "",
+          "Bellhaven at Union Square"
+        ]
+      },
+      "confidence": "low",
+      "match_tier": "no match",
+      "evidence": [
+        "website: Bellhaven at Union Square -- 118 Union Square Dr, New Albany, OH 43054",
+        "no CRM account shares this address, and no same-city name match cleared the threshold",
+        "similar names elsewhere in the CRM were rejected on geography",
+        "BUT the CRM holds nearby account(s) a human should rule out before a new account is created:",
+        "    001GNU41AVXZRLLJ9P Union Square Senior Living -- 240 Market St, New Albany, OH 43054 (parent=Juniper Point Healthcare (Parent Account), name similarity 0.57, same zip)",
+        "creating a duplicate is worse than waiting, so this is flagged for review rather than treated as a clean create"
+      ],
+      "create_account": {
+        "name": "Bellhaven at Union Square",
+        "parent_id": "0015QAPLGS3FVYEEEM",
+        "billing_street": "118 Union Square Dr",
+        "billing_city": "New Albany",
+        "billing_state": "OH",
+        "billing_zip": "43054",
+        "phone": "(330) 519-9639",
+        "status": "Active",
+        "note": "Created by ownership sync from https://analyst-assessment-production.up.railway.app/communities/bellhaven-at-union-square. Possible overlap with existing account(s) 001GNU41AVXZRLLJ9P (Union Square Senior Living, 240 Market St, parent=Juniper Point Healthcare (Parent Account)) -- same locality, different street, different phone and administrator, so treated as a separate facility. Verify before working both records."
+      },
+      "website": "/communities/bellhaven-at-union-square",
+      "near_misses": [
+        "001GNU41AVXZRLLJ9P"
+      ],
+      "fingerprint": "6a9885a7be3fffba"
+    },
+    {
+      "type": "reparent",
+      "account_id": "001LGFPBJY4N9MB6KL",
+      "account_name": "Bellhaven Crossings of Lima",
+      "changes": {
+        "parent_id": [
+          "001FJZYHR7MLFMNPLL",
+          "0015QAPLGS3FVYEEEM"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven Crossings of Lima -- 3115 N Cole St, Lima, OH 45801",
+        "CRM:     Bellhaven Crossings of Lima -- 3115 N Cole St, Lima, OH 45801",
+        "matched by T1 exact address",
+        "care offerings -- website: Assisted Living; CRM care_type: Assisted Living",
+        "SOP: no outstanding AR (lifetime_revenue=47,000 outstanding_ar=0) -- safe to re-parent in place",
+        "Harborview Care Group (Parent Account) -> Bellhaven Senior Living (Parent Account)"
+      ],
+      "fingerprint": "67d04aca67c61ca4"
+    },
+    {
+      "type": "dedupe",
+      "account_id": "0011AB44D05WLA9HTX",
+      "account_name": "Cedar Trail of Monroe",
+      "changes": {
+        "status": [
+          "Active",
+          "Inactive"
+        ],
+        "duplicate_of_account": [
+          "",
+          "001U1750VLVJAGG1S5"
+        ],
+        "note": [
+          "",
+          "Duplicate of Bellhaven Gardens of Monroe (001U1750VLVJAGG1S5). Same facility at 750 Stewart Rd, Monroe, MI 48162. Survivor chosen by: R4 name closest to the website."
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "3 CRM accounts share this address:",
+        "    001U1750VLVJAGG1S5 Bellhaven Gardens of Monroe (parent=Bellhaven Senior Living (Parent Account), rev=0, ar=0, contacts=1)",
+        "    0011AB44D05WLA9HTX Cedar Trail of Monroe (parent=Cedar Trail Communities (Parent Account), rev=0, ar=0, contacts=0)",
+        "    00159PL81N38KM4FHM Monroe Gardens Care Center (parent=Harborview Care Group (Parent Account), rev=0, ar=0, contacts=0)",
+        "website lists exactly one: Bellhaven Gardens of Monroe",
+        "survivor 001U1750VLVJAGG1S5 -- R4 name closest to the website",
+        "    scorecard | R1 has billing history: 0",
+        "    scorecard | R2 holds the administrator named on the website: 0",
+        "    scorecard | R3 phone matches the website: 0",
+        "    scorecard | R4 name closest to the website: 1.0",
+        "    scorecard | R5 already under the correct parent: 1",
+        "    scorecard | R6 most contacts / most complete: 3",
+        "API has no merge or delete, so the losing copy is deactivated and pointed at the survivor"
+      ],
+      "survivor_id": "001U1750VLVJAGG1S5",
+      "fingerprint": "4412348c1fe35a4b"
+    },
+    {
+      "type": "dedupe",
+      "account_id": "00159PL81N38KM4FHM",
+      "account_name": "Monroe Gardens Care Center",
+      "changes": {
+        "status": [
+          "Active",
+          "Inactive"
+        ],
+        "duplicate_of_account": [
+          "",
+          "001U1750VLVJAGG1S5"
+        ],
+        "note": [
+          "",
+          "Duplicate of Bellhaven Gardens of Monroe (001U1750VLVJAGG1S5). Same facility at 750 Stewart Rd, Monroe, MI 48162. Survivor chosen by: R4 name closest to the website."
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "3 CRM accounts share this address:",
+        "    001U1750VLVJAGG1S5 Bellhaven Gardens of Monroe (parent=Bellhaven Senior Living (Parent Account), rev=0, ar=0, contacts=1)",
+        "    0011AB44D05WLA9HTX Cedar Trail of Monroe (parent=Cedar Trail Communities (Parent Account), rev=0, ar=0, contacts=0)",
+        "    00159PL81N38KM4FHM Monroe Gardens Care Center (parent=Harborview Care Group (Parent Account), rev=0, ar=0, contacts=0)",
+        "website lists exactly one: Bellhaven Gardens of Monroe",
+        "survivor 001U1750VLVJAGG1S5 -- R4 name closest to the website",
+        "    scorecard | R1 has billing history: 0",
+        "    scorecard | R2 holds the administrator named on the website: 0",
+        "    scorecard | R3 phone matches the website: 0",
+        "    scorecard | R4 name closest to the website: 1.0",
+        "    scorecard | R5 already under the correct parent: 1",
+        "    scorecard | R6 most contacts / most complete: 3",
+        "API has no merge or delete, so the losing copy is deactivated and pointed at the survivor"
+      ],
+      "survivor_id": "001U1750VLVJAGG1S5",
+      "fingerprint": "906fe47b728999a7"
+    },
+    {
+      "type": "rename",
+      "account_id": "001RJ0D7Z5MAZN5HX5",
+      "account_name": "Bellhaven Health Care Center of Ashland",
+      "changes": {
+        "name": [
+          "Bellhaven Health Care Center of Ashland",
+          "Bellhaven Healthcare Centre of Ashland"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven Healthcare Centre of Ashland -- 1631 Claremont Ave, Ashland, OH 44805",
+        "CRM:     Bellhaven Health Care Center of Ashland -- 1631 Claremont Ave, Ashland, OH 44805",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "name similarity 0.98",
+        "the website is authoritative for the operating name"
+      ],
+      "fingerprint": "268bf48f45ebee17"
+    },
+    {
+      "type": "create",
+      "account_id": null,
+      "account_name": null,
+      "changes": {
+        "name": [
+          "",
+          "Bellhaven of Batavia"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "no match",
+      "evidence": [
+        "website: Bellhaven of Batavia -- 2000 Hospital Dr, Batavia, OH 45103",
+        "no CRM account shares this address, and no same-city name match cleared the threshold",
+        "similar names elsewhere in the CRM were rejected on geography"
+      ],
+      "create_account": {
+        "name": "Bellhaven of Batavia",
+        "parent_id": "0015QAPLGS3FVYEEEM",
+        "billing_street": "2000 Hospital Dr",
+        "billing_city": "Batavia",
+        "billing_state": "OH",
+        "billing_zip": "45103",
+        "phone": "(231) 698-3092",
+        "status": "Active",
+        "note": "Created by ownership sync from https://analyst-assessment-production.up.railway.app/communities/bellhaven-of-batavia."
+      },
+      "website": "/communities/bellhaven-of-batavia",
+      "near_misses": [],
+      "fingerprint": "cf0a6db0a2758f46"
+    },
+    {
+      "type": "create",
+      "account_id": null,
+      "account_name": null,
+      "changes": {
+        "name": [
+          "",
+          "Bellhaven of Carlisle"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "no match",
+      "evidence": [
+        "website: Bellhaven of Carlisle -- 640 Walnut Bottom Rd, Carlisle, PA 17015",
+        "no CRM account shares this address, and no same-city name match cleared the threshold",
+        "similar names elsewhere in the CRM were rejected on geography"
+      ],
+      "create_account": {
+        "name": "Bellhaven of Carlisle",
+        "parent_id": "0015QAPLGS3FVYEEEM",
+        "billing_street": "640 Walnut Bottom Rd",
+        "billing_city": "Carlisle",
+        "billing_state": "PA",
+        "billing_zip": "17015",
+        "phone": "(260) 386-7765",
+        "status": "Active",
+        "note": "Created by ownership sync from https://analyst-assessment-production.up.railway.app/communities/bellhaven-of-carlisle."
+      },
+      "website": "/communities/bellhaven-of-carlisle",
+      "near_misses": [],
+      "fingerprint": "0baf17d635df34c5"
+    },
+    {
+      "type": "rename",
+      "account_id": "001RJU1X4NBWC1Q0G7",
+      "account_name": "Riverbend Manor Care Center",
+      "changes": {
+        "name": [
+          "Riverbend Manor Care Center",
+          "Bellhaven of Chagrin Falls"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven of Chagrin Falls -- 150 River St, Chagrin Falls, OH 44022",
+        "CRM:     Riverbend Manor Care Center -- 150 River St, Chagrin Falls, OH 44022",
+        "matched by T1 exact address",
+        "care offerings -- website: Assisted Living; CRM care_type: Assisted Living",
+        "name similarity 0.11",
+        "the website is authoritative for the operating name"
+      ],
+      "fingerprint": "dfa45fbcec89f66e"
+    },
+    {
+      "type": "rename",
+      "account_id": "0013NUZQHQUEZ8DXEG",
+      "account_name": "Chesterton Senior Commons",
+      "changes": {
+        "name": [
+          "Chesterton Senior Commons",
+          "Bellhaven of Chesterton"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven of Chesterton -- 1250 NW Franklin Street, Chesterton, IN 46304",
+        "CRM:     Chesterton Senior Commons -- 1250 Northwest Franklin St, Chesterton, IN 46304",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "name similarity 0.46",
+        "the website is authoritative for the operating name"
+      ],
+      "fingerprint": "37678bda477b9d0e"
+    },
+    {
+      "type": "annotate",
+      "account_id": "0016KTS1UAWBRXS09J",
+      "account_name": "Kettering Nursing & Rehabilitation",
+      "changes": {
+        "note": [
+          "",
+          "Survivor of a 3-account duplicate group at 3313 Wilmington Pike, Kettering, OH 45429 (others: 001WR41PYNWXCAE2X4, 001B7XZAA3AFALS9GP). None of the copies had billing history, contacts, a phone matching the website, or a name resembling 'Bellhaven of Kettering', so the choice was arbitrary -- lowest account_id, for reproducible re-runs. Overturn this with evidence if you have any."
+        ]
+      },
+      "confidence": "low",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven of Kettering -- 3313 Wilmington Pike, Kettering, OH 45429",
+        "CRM:     Kettering Nursing & Rehabilitation -- 3313 Wilmington Pike, Kettering, OH 45429",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "kept as survivor of a 3-account duplicate group (R7 no distinguishing evidence -- lowest account_id for reproducibility)",
+        "the surviving account carries no explanation of its own otherwise -- only the deactivated copies would",
+        "recorded so a later reviewer can overturn the choice with evidence we did not have"
+      ],
+      "fingerprint": "f682ae49c70f01e6"
+    },
+    {
+      "type": "rename",
+      "account_id": "0016KTS1UAWBRXS09J",
+      "account_name": "Kettering Nursing & Rehabilitation",
+      "changes": {
+        "name": [
+          "Kettering Nursing & Rehabilitation",
+          "Bellhaven of Kettering"
+        ]
+      },
+      "confidence": "low",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven of Kettering -- 3313 Wilmington Pike, Kettering, OH 45429",
+        "CRM:     Kettering Nursing & Rehabilitation -- 3313 Wilmington Pike, Kettering, OH 45429",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "kept as survivor of a 3-account duplicate group (R7 no distinguishing evidence -- lowest account_id for reproducibility)",
+        "name similarity 0.41",
+        "the website is authoritative for the operating name"
+      ],
+      "fingerprint": "72e80d6954e09cdf"
+    },
+    {
+      "type": "reparent",
+      "account_id": "0016KTS1UAWBRXS09J",
+      "account_name": "Kettering Nursing & Rehabilitation",
+      "changes": {
+        "parent_id": [
+          "",
+          "0015QAPLGS3FVYEEEM"
+        ]
+      },
+      "confidence": "low",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven of Kettering -- 3313 Wilmington Pike, Kettering, OH 45429",
+        "CRM:     Kettering Nursing & Rehabilitation -- 3313 Wilmington Pike, Kettering, OH 45429",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "kept as survivor of a 3-account duplicate group (R7 no distinguishing evidence -- lowest account_id for reproducibility)",
+        "SOP: no billing history (lifetime_revenue=0 outstanding_ar=0) -- safe to re-parent in place",
+        "(none) -> Bellhaven Senior Living (Parent Account)"
+      ],
+      "fingerprint": "5ce96c2c9f659627"
+    },
+    {
+      "type": "dedupe",
+      "account_id": "001WR41PYNWXCAE2X4",
+      "account_name": "Kettering Care Centre",
+      "changes": {
+        "status": [
+          "Active",
+          "Inactive"
+        ],
+        "duplicate_of_account": [
+          "",
+          "0016KTS1UAWBRXS09J"
+        ],
+        "note": [
+          "",
+          "Duplicate of Kettering Nursing & Rehabilitation (0016KTS1UAWBRXS09J). Same facility at 3313 Wilmington Pike, Kettering, OH 45429. Survivor chosen by: R7 no distinguishing evidence -- lowest account_id for reproducibility."
+        ]
+      },
+      "confidence": "low",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "3 CRM accounts share this address:",
+        "    001WR41PYNWXCAE2X4 Kettering Care Centre (parent=Harborview Care Group (Parent Account), rev=0, ar=0, contacts=0)",
+        "    0016KTS1UAWBRXS09J Kettering Nursing & Rehabilitation (parent=none, rev=0, ar=0, contacts=0)",
+        "    001B7XZAA3AFALS9GP Kettering Senior Campus (parent=Cedar Trail Communities (Parent Account), rev=0, ar=0, contacts=0)",
+        "website lists exactly one: Bellhaven of Kettering",
+        "survivor 0016KTS1UAWBRXS09J -- R7 no distinguishing evidence -- lowest account_id for reproducibility",
+        "    scorecard | R1 has billing history: 0",
+        "    scorecard | R2 holds the administrator named on the website: 0",
+        "    scorecard | R3 phone matches the website: 0",
+        "    scorecard | R4 name closest to the website: 0.4052",
+        "    scorecard | R5 already under the correct parent: 0",
+        "    scorecard | R6 most contacts / most complete: 2",
+        "API has no merge or delete, so the losing copy is deactivated and pointed at the survivor"
+      ],
+      "survivor_id": "0016KTS1UAWBRXS09J",
+      "fingerprint": "69c1ee969c45a901"
+    },
+    {
+      "type": "dedupe",
+      "account_id": "001B7XZAA3AFALS9GP",
+      "account_name": "Kettering Senior Campus",
+      "changes": {
+        "status": [
+          "Active",
+          "Inactive"
+        ],
+        "duplicate_of_account": [
+          "",
+          "0016KTS1UAWBRXS09J"
+        ],
+        "note": [
+          "",
+          "Duplicate of Kettering Nursing & Rehabilitation (0016KTS1UAWBRXS09J). Same facility at 3313 Wilmington Pike, Kettering, OH 45429. Survivor chosen by: R7 no distinguishing evidence -- lowest account_id for reproducibility."
+        ]
+      },
+      "confidence": "low",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "3 CRM accounts share this address:",
+        "    001WR41PYNWXCAE2X4 Kettering Care Centre (parent=Harborview Care Group (Parent Account), rev=0, ar=0, contacts=0)",
+        "    0016KTS1UAWBRXS09J Kettering Nursing & Rehabilitation (parent=none, rev=0, ar=0, contacts=0)",
+        "    001B7XZAA3AFALS9GP Kettering Senior Campus (parent=Cedar Trail Communities (Parent Account), rev=0, ar=0, contacts=0)",
+        "website lists exactly one: Bellhaven of Kettering",
+        "survivor 0016KTS1UAWBRXS09J -- R7 no distinguishing evidence -- lowest account_id for reproducibility",
+        "    scorecard | R1 has billing history: 0",
+        "    scorecard | R2 holds the administrator named on the website: 0",
+        "    scorecard | R3 phone matches the website: 0",
+        "    scorecard | R4 name closest to the website: 0.4052",
+        "    scorecard | R5 already under the correct parent: 0",
+        "    scorecard | R6 most contacts / most complete: 2",
+        "API has no merge or delete, so the losing copy is deactivated and pointed at the survivor"
+      ],
+      "survivor_id": "0016KTS1UAWBRXS09J",
+      "fingerprint": "8bde296fd6b2cfd8"
+    },
+    {
+      "type": "chow",
+      "account_id": "001A34WFSUYHCRBLFT",
+      "account_name": "Bellhaven of Marietta",
+      "changes": {
+        "chow_current_account": [
+          "",
+          "<new account id>"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven of Marietta -- 805 Colegate Dr, Marietta, OH 45750",
+        "CRM:     Bellhaven of Marietta -- 805 Colegate Drive, Marietta, OH 45750",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "SOP: revenue AND outstanding AR are both positive (lifetime_revenue=51,250 outstanding_ar=3,800)",
+        "billing needs the original account preserved, so its parent is deliberately left unchanged",
+        "new account will sit under Bellhaven Senior Living (Parent Account)"
+      ],
+      "create_account": {
+        "name": "Bellhaven of Marietta",
+        "parent_id": "0015QAPLGS3FVYEEEM",
+        "billing_street": "805 Colegate Dr",
+        "billing_city": "Marietta",
+        "billing_state": "OH",
+        "billing_zip": "45750",
+        "care_type": "Skilled Nursing",
+        "phone": "(614) 337-1967",
+        "status": "Active",
+        "note": "Created by ownership sync for change of ownership from Cedar Trail Communities (Parent Account). Predecessor account 001A34WFSUYHCRBLFT retained for billing."
+      },
+      "atomic": true,
+      "fingerprint": "aded4c0c16d813d4"
+    },
+    {
+      "type": "dedupe",
+      "account_id": "001QU150PM4Z15UA71",
+      "account_name": "Bellhaven of Owosso",
+      "changes": {
+        "status": [
+          "Active",
+          "Inactive"
+        ],
+        "duplicate_of_account": [
+          "",
+          "001EGU7BMJ942ZTRE6"
+        ],
+        "note": [
+          "",
+          "Duplicate of Bellhaven of Owosso (001EGU7BMJ942ZTRE6). Same facility at 1120 W Main St, Owosso, MI 48867. Survivor chosen by: R2 holds the administrator named on the website."
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "2 CRM accounts share this address:",
+        "    001EGU7BMJ942ZTRE6 Bellhaven of Owosso (parent=Bellhaven Senior Living (Parent Account), rev=0, ar=0, contacts=1)",
+        "    001QU150PM4Z15UA71 Bellhaven of Owosso (parent=Bellhaven Senior Living (Parent Account), rev=0, ar=0, contacts=1)",
+        "website lists exactly one: Bellhaven of Owosso",
+        "survivor 001EGU7BMJ942ZTRE6 -- R2 holds the administrator named on the website",
+        "    scorecard | R1 has billing history: 0",
+        "    scorecard | R2 holds the administrator named on the website: 1",
+        "    scorecard | R3 phone matches the website: 1",
+        "    scorecard | R4 name closest to the website: 1.0",
+        "    scorecard | R5 already under the correct parent: 1",
+        "    scorecard | R6 most contacts / most complete: 3",
+        "API has no merge or delete, so the losing copy is deactivated and pointed at the survivor"
+      ],
+      "survivor_id": "001EGU7BMJ942ZTRE6",
+      "fingerprint": "6fb78b4299cc256f"
+    },
+    {
+      "type": "dedupe",
+      "account_id": "001JD2MWRA74LTSN24",
+      "account_name": "Harborview Nursing & Rehab of Port Clinton",
+      "changes": {
+        "status": [
+          "Active",
+          "Inactive"
+        ],
+        "duplicate_of_account": [
+          "",
+          "001UELXDAKFRKB8932"
+        ],
+        "note": [
+          "",
+          "Duplicate of Bellhaven of Port Clinton (001UELXDAKFRKB8932). Same facility at 1420 Harbor Point Dr, Port Clinton, OH 43452. Survivor chosen by: R2 holds the administrator named on the website."
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "2 CRM accounts share this address:",
+        "    001UELXDAKFRKB8932 Bellhaven of Port Clinton (parent=Bellhaven Senior Living (Parent Account), rev=0, ar=0, contacts=2)",
+        "    001JD2MWRA74LTSN24 Harborview Nursing & Rehab of Port Clinton (parent=Harborview Care Group (Parent Account), rev=0, ar=0, contacts=0)",
+        "website lists exactly one: Bellhaven of Port Clinton",
+        "survivor 001UELXDAKFRKB8932 -- R2 holds the administrator named on the website",
+        "    scorecard | R1 has billing history: 0",
+        "    scorecard | R2 holds the administrator named on the website: 1",
+        "    scorecard | R3 phone matches the website: 0",
+        "    scorecard | R4 name closest to the website: 1.0",
+        "    scorecard | R5 already under the correct parent: 1",
+        "    scorecard | R6 most contacts / most complete: 4",
+        "API has no merge or delete, so the losing copy is deactivated and pointed at the survivor"
+      ],
+      "survivor_id": "001UELXDAKFRKB8932",
+      "fingerprint": "f36603db39aa4bc3"
+    },
+    {
+      "type": "chow",
+      "account_id": "001U6RW32TY0WSXZZB",
+      "account_name": "Bellhaven of Tiffin",
+      "changes": {
+        "chow_current_account": [
+          "",
+          "<new account id>"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven of Tiffin -- 45 St Lawrence Dr, Tiffin, OH 44883",
+        "CRM:     Bellhaven of Tiffin -- 45 St Lawrence Dr, Tiffin, OH 44883",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "SOP: revenue AND outstanding AR are both positive (lifetime_revenue=84,000 outstanding_ar=12,400)",
+        "billing needs the original account preserved, so its parent is deliberately left unchanged",
+        "new account will sit under Bellhaven Senior Living (Parent Account)"
+      ],
+      "create_account": {
+        "name": "Bellhaven of Tiffin",
+        "parent_id": "0015QAPLGS3FVYEEEM",
+        "billing_street": "45 St Lawrence Dr",
+        "billing_city": "Tiffin",
+        "billing_state": "OH",
+        "billing_zip": "44883",
+        "care_type": "Skilled Nursing",
+        "phone": "(260) 589-2589",
+        "status": "Active",
+        "note": "Created by ownership sync for change of ownership from Cedar Trail Communities (Parent Account). Predecessor account 001U6RW32TY0WSXZZB retained for billing."
+      },
+      "atomic": true,
+      "fingerprint": "c32113a533f77f5c"
+    },
+    {
+      "type": "rename",
+      "account_id": "001H1JMVZWP46D5VUF",
+      "account_name": "Cedar Trail of Zanesville",
+      "changes": {
+        "name": [
+          "Cedar Trail of Zanesville",
+          "Bellhaven of Zanesville"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven of Zanesville -- 2680 Maple Ave, Zanesville, OH 43701",
+        "CRM:     Cedar Trail of Zanesville -- 2680 Maple Avenue, Zanesville, OH 43701",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "name similarity 0.46",
+        "the website is authoritative for the operating name"
+      ],
+      "fingerprint": "cc6f1653b7409180"
+    },
+    {
+      "type": "reparent",
+      "account_id": "001H1JMVZWP46D5VUF",
+      "account_name": "Cedar Trail of Zanesville",
+      "changes": {
+        "parent_id": [
+          "001FWSQ30SFW6S7604",
+          "0015QAPLGS3FVYEEEM"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven of Zanesville -- 2680 Maple Ave, Zanesville, OH 43701",
+        "CRM:     Cedar Trail of Zanesville -- 2680 Maple Avenue, Zanesville, OH 43701",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "SOP: no billing history (lifetime_revenue=0 outstanding_ar=0) -- safe to re-parent in place",
+        "Cedar Trail Communities (Parent Account) -> Bellhaven Senior Living (Parent Account)"
+      ],
+      "fingerprint": "d76c06c787bc21fd"
+    },
+    {
+      "type": "rename",
+      "account_id": "001TZCSTBZFM6K5BGN",
+      "account_name": "Bellhaven Rehab and Nursing of Grove City",
+      "changes": {
+        "name": [
+          "Bellhaven Rehab and Nursing of Grove City",
+          "Bellhaven Rehabilitation & Nursing of Grove City"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven Rehabilitation & Nursing of Grove City -- 3985 Broadway, Grove City, OH 43123",
+        "CRM:     Bellhaven Rehab and Nursing of Grove City -- 3985 Broadway, Grove City, OH 43123",
+        "matched by T1 exact address",
+        "care offerings -- website: Short-Term Rehabilitation & Nursing; CRM care_type: Skilled Nursing",
+        "name similarity 0.95",
+        "the website is authoritative for the operating name"
+      ],
+      "fingerprint": "7b2408345f06574c"
+    },
+    {
+      "type": "dedupe",
+      "account_id": "001BLYF02K97SZLZHH",
+      "account_name": "Harborview Shores of Erie",
+      "changes": {
+        "status": [
+          "Active",
+          "Inactive"
+        ],
+        "duplicate_of_account": [
+          "",
+          "001CVBBCSDM7YHN220"
+        ],
+        "note": [
+          "",
+          "Duplicate of Bellhaven Shores of Erie (001CVBBCSDM7YHN220). Same facility at 4930 W Lake Rd, Erie, PA 16505. Survivor chosen by: R2 holds the administrator named on the website."
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "2 CRM accounts share this address:",
+        "    001CVBBCSDM7YHN220 Bellhaven Shores of Erie (parent=Bellhaven Senior Living (Parent Account), rev=0, ar=0, contacts=1)",
+        "    001BLYF02K97SZLZHH Harborview Shores of Erie (parent=Harborview Care Group (Parent Account), rev=0, ar=0, contacts=0)",
+        "website lists exactly one: Bellhaven Shores of Erie",
+        "survivor 001CVBBCSDM7YHN220 -- R2 holds the administrator named on the website",
+        "    scorecard | R1 has billing history: 0",
+        "    scorecard | R2 holds the administrator named on the website: 1",
+        "    scorecard | R3 phone matches the website: 0",
+        "    scorecard | R4 name closest to the website: 1.0",
+        "    scorecard | R5 already under the correct parent: 1",
+        "    scorecard | R6 most contacts / most complete: 3",
+        "API has no merge or delete, so the losing copy is deactivated and pointed at the survivor"
+      ],
+      "survivor_id": "001CVBBCSDM7YHN220",
+      "fingerprint": "91b7a7a52c6b5f71"
+    },
+    {
+      "type": "rename",
+      "account_id": "0017MN2JYAJBDS8WQZ",
+      "account_name": "Sunny Acres Retirement Home",
+      "changes": {
+        "name": [
+          "Sunny Acres Retirement Home",
+          "Bellhaven Willow Creek"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: Bellhaven Willow Creek -- 8060 Willow Creek Ln, Portage, MI 49024",
+        "CRM:     Sunny Acres Retirement Home -- 8060 Willow Creek Lane, Portage, MI 49024",
+        "matched by T1 exact address",
+        "care offerings -- website: Memory Support; CRM care_type: Memory Care",
+        "name similarity 0.10",
+        "the website is authoritative for the operating name"
+      ],
+      "fingerprint": "fb1a1630f08224ac"
+    },
+    {
+      "type": "rename",
+      "account_id": "0010KJFP601YNTZVDA",
+      "account_name": "Arbors at Bellhaven Dayton",
+      "changes": {
+        "name": [
+          "Arbors at Bellhaven Dayton",
+          "The Arbors at Bellhaven - Dayton"
+        ]
+      },
+      "confidence": "high",
+      "match_tier": "T1 exact address",
+      "evidence": [
+        "website: The Arbors at Bellhaven - Dayton -- 2210 Salem Ave, Dayton, OH 45406",
+        "CRM:     Arbors at Bellhaven Dayton -- 2210 Salem Ave, Dayton, OH 45406",
+        "matched by T1 exact address",
+        "care offerings -- website: Memory Support; CRM care_type: Memory Care",
+        "name similarity 0.96",
+        "the website is authoritative for the operating name"
+      ],
+      "fingerprint": "761ade283de3fd7d"
+    },
+    {
+      "type": "orphan",
+      "account_id": "00116ETS45BL7DTQP7",
+      "account_name": "Bellhaven Care Center of Alliance",
+      "changes": {
+        "status": [
+          "Active",
+          "Inactive"
+        ],
+        "note": [
+          "",
+          "Not listed on the Bellhaven website as of 2026-08-27 and has no billing history or contacts. Deactivated by ownership sync."
+        ]
+      },
+      "confidence": "medium",
+      "match_tier": "no website match",
+      "evidence": [
+        "CRM: Bellhaven Care Center of Alliance -- 1785 Freshley Ave, Alliance, OH 44601",
+        "filed under Bellhaven but no community on the website matches this address",
+        "lifetime_revenue=0 outstanding_ar=0 contacts=0",
+        "no billing history and no contacts, so deactivating is low risk"
+      ],
+      "fingerprint": "bbabbcbb477cf57e"
+    },
+    {
+      "type": "orphan",
+      "account_id": "0016PVXH4B25HWR7QE",
+      "account_name": "Bellhaven of Coldwater",
+      "changes": {
+        "status": [
+          "Active",
+          "Inactive"
+        ],
+        "note": [
+          "",
+          "Not listed on the Bellhaven website as of 2026-08-27 and has no billing history or contacts. Deactivated by ownership sync."
+        ]
+      },
+      "confidence": "medium",
+      "match_tier": "no website match",
+      "evidence": [
+        "CRM: Bellhaven of Coldwater -- 90 N Michigan Ave, Coldwater, MI 49036",
+        "filed under Bellhaven but no community on the website matches this address",
+        "lifetime_revenue=0 outstanding_ar=0 contacts=0",
+        "no billing history and no contacts, so deactivating is low risk"
+      ],
+      "fingerprint": "a7416d5d1ccb5902"
+    },
+    {
+      "type": "orphan",
+      "account_id": "001SXSF4ELF0Z2LGDM",
+      "account_name": "Bellhaven of Sandusky",
+      "changes": {
+        "status": [
+          "Active",
+          "Needs Review"
+        ],
+        "note": [
+          "",
+          "Not listed on the Bellhaven website as of 2026-08-27. Has billing history -- flagged for a human to confirm whether the facility was divested, closed, or is simply missing from the site."
+        ]
+      },
+      "confidence": "medium",
+      "match_tier": "no website match",
+      "evidence": [
+        "CRM: Bellhaven of Sandusky -- 2715 Columbus Ave, Sandusky, OH 44870",
+        "filed under Bellhaven but no community on the website matches this address",
+        "lifetime_revenue=130,000 outstanding_ar=5,200 contacts=1",
+        "has billing history, so it is flagged rather than deactivated unilaterally"
+      ],
+      "fingerprint": "6af7c751705af320"
+    }
+  ]
+}

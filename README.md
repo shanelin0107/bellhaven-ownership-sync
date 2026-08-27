@@ -1,0 +1,311 @@
+# Bellhaven ownership sync
+
+Keeping the parent company link accurate on long term care accounts, using the
+operator's own website as the source of truth.
+
+I built this as a sales operations problem rather than a data engineering one.
+The question I kept coming back to while writing it was simple: if a rep opens
+one of these accounts tomorrow morning, will they call the right corporate
+office? Every design decision below follows from that.
+
+## The problem in one paragraph
+
+Roughly sixty percent of the facilities we sell into belong to a parent
+company, and those parents change hands constantly. Bellhaven absorbed the
+Harborview Care Group in 2025 and picked up part of Cedar Trail in 2026. None of
+that flowed into the CRM. So we have accounts still filed under Harborview when
+the contract now needs a Bellhaven signature, facilities that were rebranded and
+no longer match by name, and in several cases three separate accounts pointing
+at the same building. A rep working that data calls the wrong office, or works a
+duplicate that another rep already owns.
+
+## What the pipeline does
+
+```
+export BELLHAVEN_TOKEN=bh_...   # your own CRM copy, never committed
+
+python3 pipeline.py     # scrape, snapshot, match. Writes nothing to the CRM.
+python3 app.py --live   # review each proposal, approve the ones you agree with
+```
+
+The first command refreshes both sides of the picture and produces a list of
+proposed changes with the evidence behind each one. The second opens a local
+review queue on http://localhost:8765. Nothing reaches the CRM until someone
+clicks Approve, and the app has to be started with `--live` before it can write
+at all. Without that flag it runs against a scratch ledger so you can rehearse
+the whole queue with no consequences.
+
+| File | What it does |
+| --- | --- |
+| `scraper.py` | Pulls all 34 communities from the Bellhaven site |
+| `normalize.py` | Address and name normalization shared by the matcher and app |
+| `matcher.py` | Matches, classifies, and proposes. Never touches the CRM |
+| `crm_client.py` | API wrapper with the validation the server does not do |
+| `decisions.py` | SQLite ledger of every approval and rejection |
+| `app.py` | The review queue |
+| `pipeline.py` | Daily entry point that runs the first three in order |
+
+Standard library only. There is nothing to install.
+
+## How matching works
+
+Names are the worst possible join key here. Two of the facilities Bellhaven
+operates were rebranded so completely that nothing carries over:
+
+```
+Sunny Acres Retirement Home  is now  Bellhaven Willow Creek
+Chesterton Senior Commons    is now  Bellhaven of Chesterton
+```
+
+And the CRM contains a trap in the other direction. The website lists an Amberly
+Manor in Hudson, Ohio. The CRM also has an Amberly Manor, in Colorado Springs,
+owned by Juniper Point. Identical name, two thousand kilometres apart, no
+relationship. Matching on name alone would have moved a competitor's account
+under Bellhaven and simultaneously missed the fact that the Ohio facility needs
+to be created.
+
+So the matcher works on address, in four tiers, and every tier is gated on
+geography:
+
+| Tier | Test | Confidence |
+| --- | --- | --- |
+| T1 | Normalized street plus zip | high |
+| T2 | Zip, house number, street core word | high |
+| T3 | State, city, house number | medium |
+| T4 | Same city plus name similarity above 0.85 | low, review only |
+
+Normalization matters more than it sounds. The same building is written three
+different ways across these accounts:
+
+```
+3313 Wilmington Pike  /  3313 Wilmington Pk
+4930 W Lake Rd        /  4930 West Lake Road
+1120 W Main St        /  1120 West Main Street
+```
+
+T4 exists for the one account whose billing address is a PO box, where there is
+no street to match on. It can only fire when city and state already agree, which
+is what keeps the Colorado Amberly Manor out.
+
+Every website community lands in one of four buckets: the account is correct and
+nothing happens, the account needs a fix, no account exists yet, or the account
+sits under Bellhaven but the website no longer lists it.
+
+## Choosing which duplicate to keep
+
+The API has no merge and no delete, so a duplicate is resolved by picking a
+survivor, then setting `duplicate_of_account` on each losing copy to the
+survivor's id and marking it Inactive. That leaves the history intact and gives
+a rep a pointer to the record they should be working.
+
+Picking the survivor is the part that needed real rules rather than instinct.
+I use an ordered ladder and stop at the first test that separates the group:
+
+1. Has billing history. Revenue has to stay attached to something.
+2. Holds the administrator named on the website.
+3. Phone number matches the website.
+4. Name closest to the current website name.
+5. Already sits under the correct parent.
+6. Most contacts and most complete record.
+7. Nothing separates them, so take the lowest account id and say so.
+
+Rules 4 and 6 produce a score rather than a yes or no, so they are only allowed
+to decide when the gap is meaningful. An early version of this let rule 4 pick a
+Kettering survivor on a name similarity gap of 0.009, which is string comparison
+noise, and reported it as high confidence. Now a continuous rule has to clear a
+margin, and if it cannot, it does not narrow the field either.
+
+Rule 2 turned out to carry most of the weight. Three of the five duplicate
+groups were decided by it, including one where both copies were named
+"Bellhaven of Owosso" and sat under the same parent. Nothing in the CRM could
+separate them. The website listing the administrator as Gloria Lambert did.
+
+Rule 7 exists for reproducibility. Without a deterministic fallback, a group
+that genuinely cannot be resolved could pick a different survivor on each daily
+run and rewrite the CRM every night.
+
+## The change of ownership rule
+
+When an account needs to move to a different parent, the billing position
+decides how:
+
+```
+lifetime_revenue > 0 AND outstanding_ar > 0
+    Leave the old account exactly as it is, including its parent.
+    Create a new account under the correct parent.
+    Set chow_current_account on the old account to the new account's id.
+
+Anything else
+    Re-parent the existing account directly.
+```
+
+The condition is an AND. In this dataset every account with outstanding AR also
+has revenue, so the two readings happen to agree, but the code tests both
+because the rule says both.
+
+Two accounts trigger it, Bellhaven of Tiffin and Bellhaven of Marietta, both
+still filed under Cedar Trail. The proposals for those two change exactly one
+field on the existing account, `chow_current_account`, and leave `parent_id`
+alone. That is the whole point of the rule, so I check it explicitly rather than
+trusting that I got the branch right.
+
+## Judgement calls
+
+**Kettering has three accounts and no way to tell them apart.** All three sit at
+3313 Wilmington Pike. None has revenue, none has a contact, none has a phone
+number matching the website, and none is named anything close to "Bellhaven of
+Kettering". Every rule on the ladder comes back tied, so the survivor is an
+arbitrary pick. I approved the group anyway. The part that matters to a rep, that
+this building belongs to Bellhaven and not to Harborview or Cedar Trail, is not
+in doubt. Which empty shell carries the record has no operational consequence
+because none of them has anything attached. The survivor gets a note saying the
+choice was arbitrary and what was checked before making it, so anyone who later
+finds a reason to prefer a different copy can act on it.
+
+**Union Square is close enough to worry about.** The website lists Bellhaven at
+Union Square, 118 Union Square Dr, New Albany OH 43054. The CRM has Union Square
+Senior Living at 240 Market St in the same zip, owned by Juniper Point. Same
+locality, overlapping name, different street. I treated them as separate
+facilities and created the new account, for three reasons: the streets are
+different, the phone numbers are different, and the administrators are different
+people (Phil Holloway on the website, Dale Croft in the CRM). In the three
+duplicate groups where a rebrand really had happened, the administrator stayed
+the same, so two different names is evidence against a match rather than for it.
+
+The error costs are also lopsided. Creating an account that turns out to be a
+duplicate leaves us with one extra record to clean up later. Re-parenting the
+Juniper Point account if I am wrong takes a competitor's customer and files it
+under Bellhaven, and sends a rep to the wrong corporate office. The new account
+carries a note naming the possible overlap so nobody has to rediscover the
+question.
+
+**Sandusky is the one account I flagged instead of deciding.** It has 130,000 in
+lifetime revenue and 5,200 outstanding, and it has disappeared from the website.
+It might have been sold, it might have closed, or the site might just be
+incomplete. Deactivating it unilaterally risks interfering with money we are
+still collecting, so it goes to Needs Review with a note explaining what to
+confirm. The other two orphans, Alliance and Coldwater, have no revenue and no
+contacts, so deactivating them costs nothing and I did.
+
+That split is deliberate. Needs Review should mean "acting on this record could
+cause harm", not "the system was unsure". If everything ambiguous gets flagged,
+the flag becomes noise and the Sandusky case gets ignored along with the rest.
+Reasoning that does not gate an action belongs in the note field instead.
+
+**I did not touch care_type.** The website describes offerings as Short-Term
+Rehabilitation & Nursing, Assisted Living, and Memory Support, while the CRM uses
+Skilled Nursing, Assisted Living, Memory Care, and Independent Living. The
+mapping is not one to one, and the website allows several offerings per community
+where the CRM holds a single value. I show both values side by side in the
+evidence so a reviewer can see the difference, but proposing a change would mean
+inventing a mapping that nobody has agreed to.
+
+## Guards the API does not provide
+
+The write contract is undocumented. The OpenAPI spec declares no request body for
+POST or PATCH, so I probed the endpoints to find out what is enforced. The server
+validates the status enum (case sensitively), rejects unknown and read only
+fields, and checks that `parent_id` refers to a real account.
+
+It does not check `duplicate_of_account` or `chow_current_account`. Both accept
+an id that does not exist, and `duplicate_of_account` will happily point an
+account at itself. I found that by writing one and having to revert it. Those
+three checks now run in `crm_client.py` before any request leaves the machine.
+
+The client also drops fields whose value already matches the CRM and skips the
+request entirely if nothing is left, which keeps a re-run quiet instead of
+issuing updates that change nothing.
+
+## Running it daily
+
+`.github/workflows/daily.yml` runs the pipeline at 07:00 UTC, which is early
+morning in the states these facilities are in. `crontab.example` does the same
+thing locally. Neither writes to the CRM. They refresh the data, regenerate
+proposals, and leave the queue for a person.
+
+Re-runs are safe because every proposal carries a fingerprint derived from what
+it would change, and `data/decisions.db` records every fingerprint a human has
+ruled on. Rejections are as sticky as approvals, so a proposal someone declined
+does not come back the next morning asking again. Tested by running the pipeline
+three times against unchanged data:
+
+```
+run 1, empty ledger      0 suppressed, 29 awaiting review
+5 decisions recorded
+run 2                    5 suppressed, 24 awaiting review
+remaining 24 decided
+run 3                   29 suppressed,  0 awaiting review
+```
+
+The workflow caches the ledger between runs, which is the part that actually
+makes this work. Without it the scheduled job would re-raise yesterday's
+decisions every morning.
+
+Exit codes let a scheduler tell the difference between a failure and a queue
+with work in it: 0 for nothing to review, 1 for new proposals waiting, 2 for an
+error.
+
+## Results
+
+I ran the pipeline, reviewed all 29 proposals in the app, and approved every one
+of them. All 29 wrote successfully, none failed.
+
+```
+Accounts                121  ->  127
+Facilities under Bellhaven   29  ->   38
+Active                  112  ->  108
+Inactive                  9  ->   18
+Needs Review              0  ->    1
+```
+
+What changed:
+
+| Change | Count |
+| --- | --- |
+| Renamed to the current operating name | 9 |
+| Re-parented to Bellhaven directly | 3 |
+| Change of ownership, predecessor preserved | 2 |
+| Duplicates deactivated and pointed at a survivor | 7 |
+| New accounts created for communities the CRM lacked | 4 |
+| Deactivated after dropping off the website | 2 |
+| Flagged Needs Review | 1 |
+| Survivor annotated with the reasoning behind the pick | 1 |
+
+Four accounts still sit under Harborview and four under Cedar Trail, which looks
+wrong until you check why. All four Harborview accounts are deactivated
+duplicates, and deduplication does not move a parent, it only points the losing
+copy at the survivor. Under Cedar Trail, two are deactivated duplicates and the
+other two are the Tiffin and Marietta predecessors that the SOP says to leave
+alone. Every remaining account under a former parent has a reason recorded on it.
+
+The change of ownership pair came out the way the SOP requires:
+
+```
+Bellhaven of Tiffin      001U6RW32TY0WSXZZB   parent still Cedar Trail
+                                              revenue 84,000, AR 12,400 untouched
+                                              chow_current_account -> 001CB4D3723E1D17CC
+new record               001CB4D3723E1D17CC   parent Bellhaven, clean balances
+```
+
+Seventeen accounts now carry a note explaining what happened to them, including
+every duplicate, both change of ownership predecessors, the two deactivations,
+the Sandusky flag, and the Kettering survivor.
+
+You can see the end state in the CRM browser under Accounts.
+
+## What I would do next
+
+The review app lets you approve pieces of a duplicate group independently. If
+someone approves the two dedupe proposals for Kettering but rejects the
+re-parent on the survivor, the CRM ends up with two inactive accounts pointing
+at a record that still has the wrong parent and the old name. The proposals in a
+group should be linked so they are approved or rejected together.
+
+Contacts sitting on a losing duplicate are currently left where they are. The
+Owosso loser has an admissions director with an email address that the survivor
+does not have. Moving those contacts to the survivor would be the natural next
+step, and the API supports it.
+
+The website is the only source right now. Ownership changes usually show up in
+state licensing records and CMS provider data before an operator updates their
+marketing site, so a second source would catch changes earlier.

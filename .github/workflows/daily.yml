@@ -1,0 +1,93 @@
+name: Ownership sync
+
+# 07:00 UTC is roughly 02:00 Eastern -- the facilities are in OH/MI/PA/IN, so
+# this lands well before anyone opens the CRM and after the website's own
+# overnight updates.
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:          # let a human trigger a run after a known acquisition
+
+concurrency:
+  # Two overlapping runs would race on the decision ledger.
+  group: ownership-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # The ledger is what makes a re-run safe: it remembers every proposal a
+      # human has already approved or rejected. Restoring it from cache means a
+      # scheduled run does not re-raise decisions that were settled yesterday.
+      - name: Restore decision ledger
+        uses: actions/cache/restore@v4
+        with:
+          path: data/decisions.db
+          key: ownership-ledger-${{ github.run_id }}
+          restore-keys: ownership-ledger-
+
+      - name: Run pipeline
+        id: sync
+        env:
+          BELLHAVEN_TOKEN: ${{ secrets.BELLHAVEN_TOKEN }}
+        run: |
+          set +e
+          python3 pipeline.py | tee run.log
+          echo "exit=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Save decision ledger
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data/decisions.db
+          key: ownership-ledger-${{ github.run_id }}
+
+      # The proposals are the reviewable output. Keeping them as an artifact
+      # means a reviewer can pull the file and run the app locally against it.
+      - name: Upload proposals
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: proposals-${{ github.run_id }}
+          path: |
+            data/proposals.json
+            data/website_communities.csv
+            run.log
+          retention-days: 30
+
+      - name: Fail the run if the pipeline errored
+        if: steps.sync.outputs.exit == '2'
+        run: |
+          echo "::error::Ownership sync failed -- see run.log artifact."
+          exit 1
+
+      - name: Flag new proposals for review
+        if: steps.sync.outputs.exit == '1'
+        run: |
+          echo "::notice::New ownership proposals are waiting for review."
+          {
+            echo "### Ownership sync"
+            echo
+            echo "New proposals need review. Download the \`proposals-${{ github.run_id }}\`"
+            echo "artifact, drop \`proposals.json\` into \`data/\`, then:"
+            echo
+            echo '```'
+            echo 'python3 app.py --live'
+            echo '```'
+            echo
+            echo '<details><summary>Run log</summary>'
+            echo
+            echo '```'
+            cat run.log
+            echo '```'
+            echo '</details>'
+          } >> "$GITHUB_STEP_SUMMARY"

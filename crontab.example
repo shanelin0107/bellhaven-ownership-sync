@@ -1,0 +1,21 @@
+# Daily ownership sync -- install with:  crontab -e
+#
+# Runs the pipeline only. It never writes to the CRM; it refreshes the website
+# and CRM snapshots, regenerates proposals, and leaves them in the review queue.
+# A human still approves each change in the review app.
+#
+# 02:00 local, every day. Output is appended to a log; the wrapper keeps the
+# last run's exit code so you can alert on failures (exit 2) separately from
+# "there is work to review" (exit 1).
+
+BELLHAVEN_TOKEN=bh_your_token_here
+
+0 2 * * * cd /path/to/clipboard && /usr/bin/python3 pipeline.py >> data/sync.log 2>&1; \
+          [ $? -eq 2 ] && echo "ownership sync FAILED $(date)" >> data/sync-errors.log
+
+# Then review whenever convenient:
+#     cd /path/to/clipboard && python3 app.py --live
+#
+# Re-running is safe at any frequency. Proposals carry stable fingerprints and
+# the decision ledger (data/decisions.db) suppresses anything already approved
+# or rejected, so a second run on unchanged data produces an empty queue.
